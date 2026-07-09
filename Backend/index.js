@@ -1,8 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import dns from "node:dns";
 
 dotenv.config();
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 import cors from "cors";
 import bookRoute from "./route/book.route.js";
