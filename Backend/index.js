@@ -33,7 +33,7 @@ app.use(
 app.use(express.json());
 
 const PORT = process.env.PORT || 4000;
-const URI = process.env.MongoDBURI || "mongodb://localhost:27017/bookStore";
+const URI = process.env.MONGO_URI;
 
 mongoose
   .connect(URI, { dbName: "bookStore" })
