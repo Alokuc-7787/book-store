@@ -104,13 +104,6 @@ export default function CheckoutModal({ item, items, onClose, clearCart }) {
           name: address.name,
           contact: address.phone,
         },
-        method: {
-          upi: method === "upi",
-          card: method === "card",
-          netbanking: false,
-          wallet: false,
-          paylater: false,
-        },
         handler: async function (response) {
           const verifyRes = await fetch(`${API_URL}/payment/verify`, {
             method: "POST",
