@@ -52,6 +52,11 @@ export default function CheckoutModal({ item, items, onClose, clearCart }) {
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
+      if (window.Razorpay) {
+        resolve(true);
+        return;
+      }
+
       const script = document.createElement("script");
       script.src = "https://checkout.razorpay.com/v1/checkout.js";
       script.onload = () => resolve(true);
@@ -97,6 +102,7 @@ export default function CheckoutModal({ item, items, onClose, clearCart }) {
         order_id: orderData.order.id,
         prefill: {
           name: address.name,
+          contact: address.phone,
         },
         method: {
           upi: method === "upi",
