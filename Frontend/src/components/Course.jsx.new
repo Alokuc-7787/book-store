@@ -1,0 +1,226 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import Cards from "./Cards";
+
+const bookStoreItems = [
+  {
+    id: 1,
+    name: "DBMS Made Easy",
+    title: "Complete database concepts with SQL, normalization and indexing practice.",
+    category: "B.Tech CSE",
+    type: "Book",
+    price: 499,
+    badge: "Popular",
+    image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 2,
+    name: "Operating Systems Guide",
+    title: "Process scheduling, memory, deadlocks, and file systems explained clearly.",
+    category: "B.Tech CSE",
+    type: "Book",
+    price: 549,
+    badge: "Top Rated",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 3,
+    name: "Data Structures in Java",
+    title: "Arrays, trees, graphs, heaps and interview-oriented problem solving.",
+    category: "B.Tech CSE",
+    type: "Book",
+    price: 599,
+    badge: "New",
+    image: "https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 4,
+    name: "Computer Networks",
+    title: "TCP/IP, routing, switching and networking fundamentals for students.",
+    category: "B.Tech CSE",
+    type: "Book",
+    price: 479,
+    badge: "Loved",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 5,
+    name: "Compiler Design",
+    title: "Lexing, parsing, syntax trees and code generation in one package.",
+    category: "B.Tech CSE",
+    type: "Book",
+    price: 529,
+    badge: "Exam Prep",
+    image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 6,
+    name: "Software Engineering",
+    title: "SDLC, UML, testing, project planning and quality engineering concepts.",
+    category: "B.Tech CSE",
+    type: "Book",
+    price: 459,
+    badge: "Trending",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+const courseItems = [
+  {
+    id: 7,
+    name: "Full Stack Web Development",
+    title: "HTML, CSS, JavaScript, React, Node.js, Express and MongoDB bootcamp.",
+    category: "YouTube Course",
+    type: "Course",
+    price: 999,
+    badge: "Beginner Friendly",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 8,
+    name: "React + Next.js Mastery",
+    title: "Build modern UIs, routing, APIs and deployment with hands-on projects.",
+    category: "YouTube Course",
+    type: "Course",
+    price: 899,
+    badge: "Project Based",
+    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 9,
+    name: "Node.js Backend Bootcamp",
+    title: "Authentication, REST APIs, JWT, database integration and deployment.",
+    category: "YouTube Course",
+    type: "Course",
+    price: 799,
+    badge: "Backend",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 10,
+    name: "MongoDB + Express Crash Course",
+    title: "Database design, CRUD operations and real world backend workflows.",
+    category: "YouTube Course",
+    type: "Course",
+    price: 699,
+    badge: "Fast Track",
+    image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 11,
+    name: "JavaScript Interview Prep",
+    title: "Closures, promises, async await, DOM and DSA patterns for interviews.",
+    category: "YouTube Course",
+    type: "Course",
+    price: 749,
+    badge: "Interview Ready",
+    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: 12,
+    name: "Build 10 Real Projects",
+    title: "Portfolio, e-commerce, dashboard, blog and booking app projects.",
+    category: "YouTube Course",
+    type: "Course",
+    price: 1099,
+    badge: "Hands-on",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+  },
+];
+
+function Course() {
+  const [activeTab, setActiveTab] = useState("books");
+  const [cartCount, setCartCount] = useState(0);
+
+  const handleAddToCart = (item) => {
+    setCartCount((prev) => prev + 1);
+    toast.success(`${item.name} added to cart`);
+  };
+
+  const handleBuyNow = (item) => {
+    toast.success(`Checkout ready for ${item.name}`);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-sky-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
+      <div className="mx-auto max-w-screen-2xl px-4 py-8 md:px-20 md:py-12">
+        <div className="mt-20 overflow-hidden rounded-[2rem] bg-gradient-to-br from-pink-600 via-fuchsia-600 to-slate-900 p-8 text-white shadow-2xl shadow-pink-200 dark:shadow-black/30 md:p-12">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-sm font-medium backdrop-blur">
+                📚 Book Store & 🎬 Course Studio
+              </p>
+              <h1 className="text-3xl font-bold md:text-5xl">
+                Learn smart with B.Tech CSE books and full-stack YouTube courses.
+              </h1>
+              <p className="mt-4 text-lg text-pink-50/90">
+                Discover premium resources for DSA, DBMS, OS, CN, React, Node.js and more — all in one polished learning hub.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur">
+              <p className="text-sm text-pink-100">Cart items</p>
+              <p className="text-3xl font-bold">{cartCount}</p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <button
+              type="button"
+              onClick={() => setActiveTab("books")}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                activeTab === "books"
+                  ? "bg-white text-pink-600"
+                  : "bg-white/10 text-white hover:bg-white/20"
+              }`}
+            >
+              📚 Books Store
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab("courses")}
+              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                activeTab === "courses"
+                  ? "bg-white text-pink-600"
+                  : "bg-white/10 text-white hover:bg-white/20"
+              }`}
+            >
+              🎬 Courses
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-2xl font-semibold text-slate-800 dark:text-white">
+              {activeTab === "books" ? "B.Tech CSE Book Collection" : "Full-Stack YouTube Courses"}
+            </h2>
+            <p className="mt-2 text-slate-600 dark:text-slate-300">
+              {activeTab === "books"
+                ? "Choose from the most useful engineering books for core subjects."
+                : "Learn from practical video lessons with real-world projects and modern stack tools."}
+            </p>
+          </div>
+          <Link to="/">
+            <button className="rounded-full bg-pink-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-600">
+              Back to Home
+            </button>
+          </Link>
+        </div>
+
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {(activeTab === "books" ? bookStoreItems : courseItems).map((item) => (
+            <Cards
+              key={item.id}
+              item={item}
+              onAddToCart={handleAddToCart}
+              onBuyNow={handleBuyNow}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Course;

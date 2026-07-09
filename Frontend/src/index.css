@@ -1,0 +1,390 @@
+/* ✅ Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&display=swap");
+
+/* ✅ Tailwind CSS Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ✅ Global Styles */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9fafb; /* Light background */
+  color: #1f2937;            /* Gray-800 text color */
+}
+
+.dark .modal-box {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border: 1px solid rgba(100, 116, 139, 0.45);
+}
+
+.dark .btn {
+  color: #f8fafc;
+}
+
+.dark input,
+.dark select,
+.dark textarea {
+  color: #f8fafc;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #cbd5e1;
+}
+
+.trailer-film-strip {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(236, 72, 153, 0.22), rgba(15, 23, 42, 0.16));
+  background-size: 18px 18px, 100% 100%;
+  animation: trailerFilmMove 16s linear infinite;
+}
+
+.trailer-card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: conic-gradient(
+    from 90deg,
+    transparent,
+    rgba(236, 72, 153, 0.3),
+    transparent,
+    rgba(56, 189, 248, 0.18),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: trailerSpin 6s linear infinite;
+}
+
+.trailer-card-glow:hover::before {
+  opacity: 1;
+}
+
+.trailer-poster {
+  animation: trailerPosterZoom 7s ease-in-out infinite alternate;
+}
+
+.trailer-scanline {
+  animation: trailerScan 2.8s ease-in-out infinite;
+}
+
+.trailer-progress {
+  animation: trailerProgress 5.5s ease-in-out infinite;
+}
+
+.trailer-scene-pop {
+  animation: trailerScenePop 0.75s ease both;
+}
+
+.trailer-float {
+  animation: trailerFloat 3.5s ease-in-out infinite;
+}
+
+.dashboard-video-bg {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(236, 72, 153, 0.42), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.28), transparent 26%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(88, 28, 135, 0.78), rgba(15, 23, 42, 0.96));
+  animation: dashboardAura 7s ease-in-out infinite alternate;
+}
+
+.dashboard-film {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(236, 72, 153, 0.28), rgba(14, 165, 233, 0.18)),
+    url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1200&q=80");
+  background-position: 0 0, 0 0, center;
+  background-size: 20px 20px, 100% 100%, cover;
+  animation: dashboardFilmMove 14s linear infinite;
+}
+
+.dashboard-screen {
+  animation: dashboardScreenIn 0.9s ease both;
+}
+
+.dashboard-reveal {
+  animation: dashboardReveal 0.85s ease both;
+}
+
+.dashboard-stat {
+  animation: dashboardStatIn 0.75s ease both;
+}
+
+.dashboard-book-stack {
+  position: relative;
+  transform: rotate(-8deg);
+  animation: dashboardBookFloat 3s ease-in-out infinite;
+}
+
+.dashboard-book-stack::before,
+.dashboard-book-stack::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.dashboard-book-stack::before {
+  top: 22px;
+}
+
+.dashboard-book-stack::after {
+  bottom: 22px;
+}
+
+.dashboard-progress {
+  animation: dashboardProgress 4.8s ease-in-out infinite;
+}
+
+.course-video-bg {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(236, 72, 153, 0.42), transparent 30%),
+    radial-gradient(circle at 82% 12%, rgba(56, 189, 248, 0.28), transparent 28%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(112, 26, 117, 0.84), rgba(15, 23, 42, 0.98));
+  animation: dashboardAura 7s ease-in-out infinite alternate;
+}
+
+.course-film {
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.11) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(236, 72, 153, 0.26), rgba(14, 165, 233, 0.2)),
+    url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80");
+  background-position: 0 0, 0 0, center;
+  background-size: 20px 20px, 100% 100%, cover;
+  animation: dashboardFilmMove 14s linear infinite;
+}
+
+.course-play {
+  position: relative;
+  animation: coursePlayPulse 1.8s ease-in-out infinite;
+}
+
+.course-play::after {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 19px;
+  border-left: 18px solid #fff;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+
+.course-studio-pill,
+.course-books-tab,
+.course-courses-tab {
+  font-size: 0;
+}
+
+.course-studio-pill::after {
+  content: "Book Store & Course Studio";
+  font-size: 0.75rem;
+}
+
+.course-books-tab::after {
+  content: "Books Store";
+  font-size: 0.875rem;
+}
+
+.course-courses-tab::after {
+  content: "Courses";
+  font-size: 0.875rem;
+}
+
+.lucky-wheel {
+  position: relative;
+  isolation: isolate;
+}
+
+.lucky-wheel::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  z-index: -1;
+  border-radius: 999px;
+  border: 2px dashed rgba(255, 255, 255, 0.55);
+}
+
+.lucky-wheel-spin {
+  animation: luckyWheelSpin 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes trailerFilmMove {
+  from {
+    background-position: 0 0, 0 0;
+  }
+  to {
+    background-position: 90px 0, 0 0;
+  }
+}
+
+@keyframes trailerSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes trailerPosterZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes trailerScan {
+  0% {
+    transform: translateX(-120%);
+  }
+  55%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes trailerProgress {
+  0% {
+    width: 8%;
+  }
+  50% {
+    width: 78%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes trailerScenePop {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes trailerFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes dashboardAura {
+  from {
+    transform: scale(1);
+    filter: saturate(1);
+  }
+  to {
+    transform: scale(1.02);
+    filter: saturate(1.25);
+  }
+}
+
+@keyframes dashboardFilmMove {
+  from {
+    background-position: 0 0, 0 0, center;
+  }
+  to {
+    background-position: 120px 0, 0 0, center;
+  }
+}
+
+@keyframes dashboardScreenIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dashboardReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dashboardStatIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dashboardBookFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-3deg);
+  }
+}
+
+@keyframes dashboardProgress {
+  0% {
+    width: 12%;
+  }
+  55% {
+    width: 82%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes coursePlayPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.42);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 18px rgba(236, 72, 153, 0);
+  }
+}
+
+@keyframes luckyWheelSpin {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+  60% {
+    transform: rotate(540deg) scale(1.08);
+  }
+  to {
+    transform: rotate(720deg) scale(1);
+  }
+}
+
+/* Optional utility tweaks (custom classes if needed) */
+/*
+.custom-heading {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+}
+*/

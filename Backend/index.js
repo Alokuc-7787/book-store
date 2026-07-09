@@ -1,0 +1,50 @@
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+
+dotenv.config();
+
+import cors from "cors";
+import bookRoute from "./route/book.route.js";
+import userRoute from "./route/user.route.js";
+import contactRoute from "./route/contact.route.js";
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+const PORT = process.env.PORT || 4000;
+const URI = process.env.MongoDBURI || "mongodb://localhost:27017/bookStore";
+
+mongoose
+  .connect(URI, { dbName: "bookStore" })
+  .then(() => console.log("Connected to mongoDB"))
+  .catch((error) => console.error("MongoDB connection error:", error));
+
+// defining routes
+app.use("/book", bookRoute);
+app.use("/user", userRoute);
+app.use("/contact", contactRoute);
+
+app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
+    return res.status(400).json({ message: "Invalid JSON payload" });
+  }
+  console.error("Server error:", err);
+  res.status(500).json({ message: "Internal server error" });
+});
+
+const server = app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
+
+server.on("error", (error) => {
+  if (error.code === "EADDRINUSE") {
+    console.error(`Port ${PORT} is already in use. Close the old process and try again.`);
+    process.exit(1);
+  } else {
+    console.error("Server error:", error);
+    process.exit(1);
+  }
+});
