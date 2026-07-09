@@ -11,7 +11,25 @@ import contactRoute from "./route/contact.route.js";
 
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  "https://book-store-3-7jsp.onrender.com",
+  "https://book-store-one-gamma.vercel.app",
+  "http://localhost:5174",
+  "https://tumhara-frontend-url.vercel.app",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 const PORT = process.env.PORT || 4000;

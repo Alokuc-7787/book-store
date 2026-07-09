@@ -21,7 +21,7 @@ function Login() {
       password: data.password,
     };
     try {
-      const res = await axios.post("http://localhost:4000/user/login", userInfo);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/user/login`, userInfo);
       console.log(res.data);
       if (res.data?.user) {
         setAuthUser(res.data.user);

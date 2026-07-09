@@ -13,7 +13,7 @@ function AdminPanel() {
     setError("");
 
     try {
-      const res = await axios.get("http://localhost:4000/contact");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/contact`);
       setMessages(res.data.messages || []);
     } catch (err) {
       setError("Contact messages load nahi ho paye. Backend server check karein.");
@@ -24,7 +24,7 @@ function AdminPanel() {
 
   const handleResolveMessage = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/contact/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/contact/${id}`);
       setMessages((current) => current.filter((message) => message._id !== id));
     } catch (err) {
       setError("Message remove nahi ho paya. Backend server check karein.");

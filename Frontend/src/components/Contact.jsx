@@ -77,7 +77,7 @@ function Contact() {
     setSuccess(false);
 
     try {
-      await axios.post("http://localhost:4000/contact", formData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/contact`, formData);
       setSuccess(true);
       setFormData(initialForm);
     } catch (err) {
