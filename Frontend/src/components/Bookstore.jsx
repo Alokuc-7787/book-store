@@ -25,7 +25,7 @@ const bookStoreItems = [
     title: "Arrays, linked lists, trees, graphs, sorting and interview problem solving.",
     category: "Data Structures",
     type: "Book",
-    price: 599,
+    price: 1,
     badge: "New",
     image: coverImage("9781118771334"),
   },
