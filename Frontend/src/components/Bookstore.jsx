@@ -15,7 +15,7 @@ const bookStoreItems = [
     title: "Algorithms, data structures, graph theory and complexity for CS fundamentals.",
     category: "Computer Science",
     type: "Book",
-    price: 699,
+    price: 1,
     badge: "Core",
     image: coverImage("9780262033848"),
   },
