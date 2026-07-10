@@ -15,6 +15,8 @@ import paymentRoute from "./route/payment.route.js";
 const app = express();
 
 const allowedOrigins = [
+  "https://bookstoretech.online",
+  "https://www.bookstoretech.online",
   "https://book-store-3-7jsp.onrender.com",
   "https://book-store-one-gamma.vercel.app",
   "http://localhost:5173",
