@@ -10,6 +10,7 @@ import AIChatAssistant from "./components/AIChatAssistant.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import AdminPanel from "./components/AdminPanel.jsx";
+import AdminRoute from "./components/AdminRoute.jsx";
 
 function App() {
   return (
@@ -27,7 +28,14 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin" element={<AdminPanel />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminPanel />
+            </AdminRoute>
+          }
+        />
         <Route
           path="/bookstore"
           element={

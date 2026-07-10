@@ -8,9 +8,11 @@ import OrdersModal from "./OrdersModal";
 import CheckoutModal from "./CheckoutModal";
 import { useAuth } from "../context/AuthProvider";
 import { useCart } from "../context/CartProvider.jsx";
+import { isAdminUser } from "../utils/admin";
 
 function Navbar() {
   const [authUser, setAuthUser] = useAuth();
+  const isAdmin = isAdminUser(authUser);
   const navigate = useNavigate();
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -68,9 +70,11 @@ function Navbar() {
       <li>
         <a href="/about" className="font-medium text-slate-700 hover:text-pink-500 dark:text-slate-100 dark:hover:text-pink-300">About</a>
       </li>
-      <li>
-        <a href="/admin" className="font-medium text-slate-700 hover:text-pink-500 dark:text-slate-100 dark:hover:text-pink-300">Admin</a>
-      </li>
+      {isAdmin && (
+        <li>
+          <a href="/admin" className="font-medium text-slate-700 hover:text-pink-500 dark:text-slate-100 dark:hover:text-pink-300">Admin</a>
+        </li>
+      )}
     </>
   );
   const cartModal =
