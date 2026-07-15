@@ -31,18 +31,18 @@ function Banner() {
 
   return (
     <>
-      <div className=" max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10">
+      <div className="max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10">
         <div className="w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-36">
           <div className="space-y-8">
-            <h1 className="text-2xl md:text-4xl font-bold">
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-slate-950 dark:text-white">
               Discover Books, Learn Faster & Grow Every Day
             </h1>
-            <p className="text-sm md:text-xl">
+            <p className="max-w-xl text-sm leading-7 text-slate-600 dark:text-slate-300 md:text-xl">
               Explore useful books, smart recommendations, reading tools, and
               secure ordering in one simple bookstore experience.
             </p>
             <form onSubmit={handleGetStarted}>
-              <label className="input input-bordered flex items-center gap-2">
+              <label className="input input-bordered flex items-center gap-2 rounded-xl border-slate-300 bg-white text-slate-900 dark:border-slate-700 dark:bg-slate-950 dark:text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -65,18 +65,20 @@ function Banner() {
                   {emailError}
                 </p>
               )}
-              <button type="submit" className="btn mt-6 btn-secondary">
+              <button type="submit" className="mt-6 rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:bg-slate-800 dark:bg-pink-500 dark:hover:bg-pink-600">
                 Get Started
               </button>
             </form>
           </div>
         </div>
-        <div className=" order-1 w-full mt-20 md:w-1/2">
-          <img
-            src="/Banner.png"
-            className="md:w-[550px] md:h-[460px] md:ml-12"
-            alt=""
-          />
+        <div className="order-1 w-full mt-20 md:w-1/2">
+          <div className="rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.10)] dark:from-slate-900 dark:to-slate-950">
+            <img
+              src="/Banner.png"
+              className="mx-auto h-auto max-h-[460px] w-full object-contain"
+              alt="Books and learning illustration"
+            />
+          </div>
         </div>
       </div>
     </>
