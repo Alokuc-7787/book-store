@@ -10,9 +10,7 @@ function Freebook() {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/book`);
 
-        const data = res.data.filter((data) => data.category === "Free");
-        console.log(data);
-        setBook(data);
+        setBook(res.data.slice(0, 6));
       } catch (error) {
         console.log(error);
       }
@@ -20,20 +18,18 @@ function Freebook() {
     getBook();
   }, []);
 
-  const visibleBooks = book.slice(0, 6);
-
   return (
     <>
       <div className=" max-w-screen-2xl container mx-auto md:px-20 px-4">
         <div>
-          <h1 className="font-semibold text-xl pb-2">Free Offered Courses</h1>
+          <h1 className="font-semibold text-xl pb-2">Popular Books</h1>
           <p>
             Explore selected books and learning resources to start reading today.
           </p>
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleBooks.map((item) => (
+            {book.map((item) => (
               <Cards item={item} key={item.id} />
             ))}
         </div>
