@@ -214,6 +214,55 @@ body {
   animation: luckyWheelSpin 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.book-loader {
+  animation: loaderFadeOut 0.45s ease 1.65s forwards;
+}
+
+.book-open-animation {
+  position: relative;
+  width: 180px;
+  height: 120px;
+  perspective: 900px;
+}
+
+.book-page {
+  position: absolute;
+  top: 12px;
+  width: 86px;
+  height: 104px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background:
+    repeating-linear-gradient(0deg, rgba(15, 23, 42, 0.08) 0 2px, transparent 2px 13px),
+    linear-gradient(135deg, #ffffff, #fce7f3 42%, #dbeafe);
+  box-shadow: 0 22px 60px rgba(236, 72, 153, 0.25);
+}
+
+.book-page-left {
+  left: 4px;
+  border-radius: 16px 4px 4px 16px;
+  transform-origin: right center;
+  animation: bookLeftOpen 1.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.book-page-right {
+  right: 4px;
+  border-radius: 4px 16px 16px 4px;
+  transform-origin: left center;
+  animation: bookRightOpen 1.55s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.book-spine {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  width: 10px;
+  height: 116px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ec4899, #0f172a);
+  transform: translateX(-50%);
+  box-shadow: 0 0 32px rgba(236, 72, 153, 0.45);
+}
+
 @keyframes trailerFilmMove {
   from {
     background-position: 0 0, 0 0;
@@ -377,6 +426,31 @@ body {
   }
   to {
     transform: rotate(720deg) scale(1);
+  }
+}
+
+@keyframes bookLeftOpen {
+  from {
+    transform: rotateY(0deg) translateX(38px);
+  }
+  to {
+    transform: rotateY(-34deg) translateX(0);
+  }
+}
+
+@keyframes bookRightOpen {
+  from {
+    transform: rotateY(0deg) translateX(-38px);
+  }
+  to {
+    transform: rotateY(34deg) translateX(0);
+  }
+}
+
+@keyframes loaderFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
