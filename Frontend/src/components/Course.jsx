@@ -1662,7 +1662,7 @@ function Course() {
         )}
 
         {activeTab === "books" && (
-          <section className="trailer-film-strip mt-8 overflow-hidden rounded-2xl border border-pink-100 bg-slate-950 p-4 text-white shadow-[0_8px_30px_rgba(15,23,42,0.18)]">
+          <section id="book-trailers" className="trailer-film-strip mt-8 scroll-mt-28 overflow-hidden rounded-2xl border border-pink-100 bg-slate-950 p-4 text-white shadow-[0_8px_30px_rgba(15,23,42,0.18)]">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-pink-300">

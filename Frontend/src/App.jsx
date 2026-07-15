@@ -12,6 +12,7 @@ import Contact from "./components/Contact.jsx";
 import AdminPanel from "./components/AdminPanel.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 import ScrollToHash from "./components/ScrollToHash.jsx";
+import PolicyPage from "./components/PolicyPage.jsx";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PolicyPage type="/privacy-policy" />} />
+        <Route path="/terms" element={<PolicyPage type="/terms" />} />
+        <Route path="/refund-policy" element={<PolicyPage type="/refund-policy" />} />
         <Route
           path="/admin"
           element={

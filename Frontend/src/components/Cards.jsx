@@ -599,6 +599,13 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
             {item.title}
           </p>
 
+          <div className="mt-2 flex items-center justify-between rounded-xl bg-slate-50 px-2 py-1 text-[10px] font-semibold text-slate-700 dark:bg-slate-950 dark:text-slate-200 sm:text-xs">
+            <span className="text-amber-400">
+              ★★★★★ <span className="text-slate-700 dark:text-slate-200">(4.8)</span>
+            </span>
+            <span>120 Reviews</span>
+          </div>
+
           <div className="mt-2 flex items-center justify-between sm:mt-3">
             <div>
               <p className="hidden text-[10px] uppercase tracking-[0.2em] text-slate-400 sm:block">

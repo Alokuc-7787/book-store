@@ -1,56 +1,79 @@
 import React from "react";
 
 function Footer() {
+  const companyLinks = [
+    { label: "About", href: "/about" },
+    { label: "Support", href: "/contact" },
+    { label: "GitHub", href: "https://github.com/Alokuc-7787/book-store" },
+  ];
+
+  const policyLinks = [
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms", href: "/terms" },
+    { label: "Refund Policy", href: "/refund-policy" },
+  ];
+
+  const connectLinks = [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/alok-kumar-1882362a4/" },
+    { label: "Email", href: "mailto:alokuc123@gmail.com" },
+  ];
+
+  const renderLinks = (links) =>
+    links.map((link) => (
+      <a
+        key={link.label}
+        href={link.href}
+        className="text-sm text-slate-300 transition hover:text-pink-300"
+        target={link.href.startsWith("http") ? "_blank" : undefined}
+        rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+      >
+        {link.label}
+      </a>
+    ));
+
   return (
-    <div>
-      <hr />
-      <footer className="footer footer-center p-10 text-base-content rounded dark:bg-slate-900 dark:text-white">
-        <nav className="grid grid-flow-col gap-4">
-          <a href="/about" className="link link-hover">About us</a>
-          <a href="/contact" className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
-        </nav>
-        <nav>
-          <div className="grid grid-flow-col gap-4">
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-              </svg>
-            </a>
-            <a>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="fill-current"
-              >
-                <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-              </svg>
-            </a>
+    <div className="mt-14 border-t border-slate-200 dark:border-slate-800">
+      <footer className="bg-slate-950 text-white">
+        <div className="max-w-screen-2xl container mx-auto px-4 py-10 md:px-20">
+          <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
+            <div>
+              <h3 className="text-2xl font-black tracking-tight">bookStore</h3>
+              <p className="mt-3 max-w-sm text-sm leading-6 text-slate-300">
+                Premium online bookstore for academic books, AI recommendations,
+                exchange, secure payment and faster reading.
+              </p>
+              <div className="mt-5 inline-flex rounded-full border border-pink-400/30 bg-pink-500/10 px-4 py-2 text-xs font-bold text-pink-200">
+                AI Powered • Secure Razorpay • Student Friendly
+              </div>
+            </div>
+
+            <div>
+              <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-pink-300">
+                About
+              </h4>
+              <div className="flex flex-col gap-3">{renderLinks(companyLinks)}</div>
+            </div>
+
+            <div>
+              <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-pink-300">
+                Policies
+              </h4>
+              <div className="flex flex-col gap-3">{renderLinks(policyLinks)}</div>
+            </div>
+
+            <div>
+              <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-pink-300">
+                Connect
+              </h4>
+              <div className="flex flex-col gap-3">{renderLinks(connectLinks)}</div>
+            </div>
           </div>
-        </nav>
-        <aside>
-          <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
-        </aside>
+
+          <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+            <p>Copyright 2026 BookStore. All rights reserved.</p>
+            <p>500+ Books • Secure Payment • AI Powered</p>
+          </div>
+        </div>
       </footer>
     </div>
   );
