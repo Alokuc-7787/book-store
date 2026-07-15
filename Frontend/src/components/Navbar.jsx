@@ -13,56 +13,64 @@ import { isAdminUser } from "../utils/admin";
 function BrandLogo() {
   return (
     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-white dark:ring-slate-700">
-      <svg viewBox="0 0 100 100" className="h-8 w-8" aria-hidden="true">
+      <svg viewBox="0 0 100 100" className="h-9 w-9" aria-hidden="true">
         <defs>
-          <linearGradient id="brandBlue" x1="18" y1="78" x2="82" y2="18" gradientUnits="userSpaceOnUse">
+          <linearGradient id="brandBlue" x1="12" y1="84" x2="86" y2="14" gradientUnits="userSpaceOnUse">
             <stop stopColor="#06345f" />
             <stop offset="1" stopColor="#0b4f80" />
           </linearGradient>
-          <linearGradient id="brandGold" x1="22" y1="78" x2="78" y2="22" gradientUnits="userSpaceOnUse">
+          <linearGradient id="brandGold" x1="18" y1="86" x2="84" y2="18" gradientUnits="userSpaceOnUse">
             <stop stopColor="#b57a19" />
             <stop offset="1" stopColor="#f5d37a" />
           </linearGradient>
         </defs>
         <path
-          d="M20 75C34 86 57 83 73 66c12-13 15-29 10-43"
-          fill="none"
-          stroke="url(#brandBlue)"
-          strokeWidth="9"
-          strokeLinecap="round"
-        />
-        <path
-          d="M77 22C62 12 40 15 25 32 13 46 11 63 20 76"
+          d="M15 78C26 91 51 92 70 76C86 62 91 40 82 21"
           fill="none"
           stroke="url(#brandGold)"
           strokeWidth="8"
           strokeLinecap="round"
         />
         <path
-          d="M17 77C34 57 51 39 76 21"
+          d="M81 20C66 8 39 10 22 29C9 44 8 63 17 78"
+          fill="none"
           stroke="url(#brandBlue)"
-          strokeWidth="11"
+          strokeWidth="9"
           strokeLinecap="round"
         />
         <path
-          d="M67 20h13v13"
+          d="M15 82C32 60 51 39 81 15"
+          stroke="url(#brandBlue)"
+          strokeWidth="12"
+          strokeLinecap="round"
+        />
+        <path
+          d="M66 15h20v20"
           fill="none"
           stroke="url(#brandBlue)"
-          strokeWidth="11"
+          strokeWidth="12"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M24 72C41 59 55 42 65 23"
+          d="M22 73C38 59 52 42 62 22"
           stroke="url(#brandGold)"
-          strokeWidth="7"
+          strokeWidth="7.5"
           strokeLinecap="round"
         />
         <path
-          d="M34 80C50 72 63 59 74 37"
+          d="M31 82C48 75 62 60 75 36"
           stroke="url(#brandGold)"
-          strokeWidth="7"
+          strokeWidth="7.5"
           strokeLinecap="round"
+        />
+        <path
+          d="M25 28C41 23 54 26 64 39"
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="4"
+          strokeLinecap="round"
+          opacity="0.9"
         />
       </svg>
     </span>
