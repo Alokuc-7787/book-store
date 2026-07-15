@@ -12,12 +12,47 @@ import { isAdminUser } from "../utils/admin";
 
 function BrandLogo() {
   return (
-    <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-white dark:ring-slate-700">
-      <img
-        src="/bookstore-logo.png"
-        alt="BookStore logo"
-        className="h-full w-full object-cover"
-      />
+    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-700">
+      <svg
+        viewBox="0 0 64 64"
+        className="h-8 w-8"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient id="brandBlue" x1="9" y1="52" x2="54" y2="11" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#082f49" />
+            <stop offset="1" stopColor="#0ea5e9" />
+          </linearGradient>
+          <linearGradient id="brandGold" x1="14" y1="50" x2="55" y2="12" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#b7791f" />
+            <stop offset="1" stopColor="#fde68a" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M48 8l8 1-2 8-5-4C40 24 30 35 16 48c13-6 24-12 34-27l5 4 1-17-16 2 5 4C35 29 23 39 8 54c7-18 22-34 40-46Z"
+          fill="url(#brandBlue)"
+        />
+        <path
+          d="M12 45C18 26 32 13 51 8c-8 7-15 15-21 24 7-3 13-4 20-3-12 4-22 12-30 24l-8-8Z"
+          fill="url(#brandGold)"
+          opacity="0.92"
+        />
+        <path
+          d="M11 47c12-7 23-13 34-28"
+          fill="none"
+          stroke="#f8fafc"
+          strokeWidth="3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M18 51a24 24 0 1 0-6-11"
+          fill="none"
+          stroke="url(#brandBlue)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          opacity="0.9"
+        />
+      </svg>
     </span>
   );
 }
