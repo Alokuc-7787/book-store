@@ -12,42 +12,62 @@ import { isAdminUser } from "../utils/admin";
 
 function BrandLogo() {
   return (
-    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-700">
-      <svg
-        viewBox="0 0 64 64"
-        className="h-8 w-8"
-        aria-hidden="true"
-      >
+    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-white dark:ring-slate-700">
+      <svg viewBox="0 0 100 100" className="h-9 w-9" aria-hidden="true">
         <defs>
-          <linearGradient id="brandBlue" x1="9" y1="52" x2="54" y2="11" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#082f49" />
-            <stop offset="1" stopColor="#0ea5e9" />
+          <linearGradient id="brandBlue" x1="12" y1="84" x2="86" y2="14" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#06345f" />
+            <stop offset="1" stopColor="#0b4f80" />
           </linearGradient>
-          <linearGradient id="brandGold" x1="14" y1="50" x2="55" y2="12" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#b7791f" />
-            <stop offset="1" stopColor="#fde68a" />
+          <linearGradient id="brandGold" x1="18" y1="86" x2="84" y2="18" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#b57a19" />
+            <stop offset="1" stopColor="#f5d37a" />
           </linearGradient>
         </defs>
         <path
-          d="M48 8l8 1-2 8-5-4C40 24 30 35 16 48c13-6 24-12 34-27l5 4 1-17-16 2 5 4C35 29 23 39 8 54c7-18 22-34 40-46Z"
-          fill="url(#brandBlue)"
-        />
-        <path
-          d="M12 45C18 26 32 13 51 8c-8 7-15 15-21 24 7-3 13-4 20-3-12 4-22 12-30 24l-8-8Z"
-          fill="url(#brandGold)"
-          opacity="0.92"
-        />
-        <path
-          d="M11 47c12-7 23-13 34-28"
+          d="M15 78C26 91 51 92 70 76C86 62 91 40 82 21"
           fill="none"
-          stroke="#f8fafc"
-          strokeWidth="3"
+          stroke="url(#brandGold)"
+          strokeWidth="8"
           strokeLinecap="round"
         />
         <path
-          d="M18 51a24 24 0 1 0-6-11"
+          d="M81 20C66 8 39 10 22 29C9 44 8 63 17 78"
           fill="none"
           stroke="url(#brandBlue)"
+          strokeWidth="9"
+          strokeLinecap="round"
+        />
+        <path
+          d="M15 82C32 60 51 39 81 15"
+          stroke="url(#brandBlue)"
+          strokeWidth="12"
+          strokeLinecap="round"
+        />
+        <path
+          d="M66 15h20v20"
+          fill="none"
+          stroke="url(#brandBlue)"
+          strokeWidth="12"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M22 73C38 59 52 42 62 22"
+          stroke="url(#brandGold)"
+          strokeWidth="7.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M31 82C48 75 62 60 75 36"
+          stroke="url(#brandGold)"
+          strokeWidth="7.5"
+          strokeLinecap="round"
+        />
+        <path
+          d="M25 28C41 23 54 26 64 39"
+          fill="none"
+          stroke="#ffffff"
           strokeWidth="4"
           strokeLinecap="round"
           opacity="0.9"
