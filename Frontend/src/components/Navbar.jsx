@@ -12,68 +12,12 @@ import { isAdminUser } from "../utils/admin";
 
 function BrandLogo() {
   return (
-    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-700">
-      <svg
-        viewBox="0 0 120 120"
-        className="h-9 w-9"
-        aria-hidden="true"
-      >
-        <defs>
-          <linearGradient id="brandBlue" x1="18" y1="101" x2="100" y2="18" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#061b37" />
-            <stop offset="0.58" stopColor="#064a75" />
-            <stop offset="1" stopColor="#0e6c91" />
-          </linearGradient>
-          <linearGradient id="brandGold" x1="21" y1="103" x2="99" y2="19" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#9d6b20" />
-            <stop offset="0.5" stopColor="#d6a84a" />
-            <stop offset="1" stopColor="#fff0b1" />
-          </linearGradient>
-        </defs>
-
-        <path
-          d="M18 95C2 67 12 29 44 14c22-10 49-5 66 14l-10 9C86 21 62 17 45 28 24 41 17 68 30 88L18 95Z"
-          fill="url(#brandBlue)"
-        />
-        <path
-          d="M31 106c32-8 58-31 70-65l10 6c-13 38-43 62-80 69v-10Z"
-          fill="url(#brandGold)"
-        />
-        <path
-          d="M13 100C34 67 62 42 94 26l-9-10 31 7-8 30-8-12C69 57 43 76 22 108L13 100Z"
-          fill="url(#brandBlue)"
-        />
-        <path
-          d="M17 91C39 66 63 47 94 31"
-          fill="none"
-          stroke="url(#brandGold)"
-          strokeWidth="10"
-          strokeLinecap="round"
-        />
-        <path
-          d="M34 33c24-10 50 6 50 28 0 25-38 25-38 2 0-7 5-13 12-15-11-2-22 8-30 29l-12-2c4-19 9-34 18-42Z"
-          fill="url(#brandBlue)"
-          opacity="0.96"
-        />
-        <path
-          d="M26 101c34-13 53-33 57-57 11 22-5 50-39 63-10 4-18 6-18 6v-12Z"
-          fill="url(#brandGold)"
-        />
-        <path
-          d="M35 29c18 18 13 38-7 58"
-          fill="none"
-          stroke="url(#brandBlue)"
-          strokeWidth="12"
-          strokeLinecap="round"
-        />
-        <path
-          d="M48 29c21 17 17 45-16 70"
-          fill="none"
-          stroke="url(#brandGold)"
-          strokeWidth="10"
-          strokeLinecap="round"
-        />
-      </svg>
+    <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-white dark:ring-slate-700">
+      <img
+        src="/bookstore-logo.png"
+        alt="BookStore logo"
+        className="h-full w-full object-cover"
+      />
     </span>
   );
 }
