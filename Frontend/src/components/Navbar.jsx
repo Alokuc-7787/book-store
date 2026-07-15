@@ -12,45 +12,61 @@ import { isAdminUser } from "../utils/admin";
 
 function BrandLogo() {
   return (
-    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-700">
+    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-md ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-700">
       <svg
-        viewBox="0 0 64 64"
-        className="h-8 w-8"
+        viewBox="0 0 100 100"
+        className="h-9 w-9"
         aria-hidden="true"
       >
         <defs>
-          <linearGradient id="brandBlue" x1="9" y1="52" x2="54" y2="11" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#082f49" />
-            <stop offset="1" stopColor="#0ea5e9" />
+          <linearGradient id="brandBlue" x1="16" y1="86" x2="82" y2="13" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#062342" />
+            <stop offset="0.55" stopColor="#0b4f7a" />
+            <stop offset="1" stopColor="#0f6d95" />
           </linearGradient>
-          <linearGradient id="brandGold" x1="14" y1="50" x2="55" y2="12" gradientUnits="userSpaceOnUse">
-            <stop stopColor="#b7791f" />
-            <stop offset="1" stopColor="#fde68a" />
+          <linearGradient id="brandGold" x1="20" y1="78" x2="77" y2="12" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#9a6a20" />
+            <stop offset="0.48" stopColor="#d9ad56" />
+            <stop offset="1" stopColor="#fff1b8" />
           </linearGradient>
         </defs>
+
         <path
-          d="M48 8l8 1-2 8-5-4C40 24 30 35 16 48c13-6 24-12 34-27l5 4 1-17-16 2 5 4C35 29 23 39 8 54c7-18 22-34 40-46Z"
+          d="M20 78C5 55 13 24 39 12c18-8 39-4 53 9l-7 7C73 17 55 14 41 21 21 31 14 55 28 72l-8 6Z"
           fill="url(#brandBlue)"
         />
         <path
-          d="M12 45C18 26 32 13 51 8c-8 7-15 15-21 24 7-3 13-4 20-3-12 4-22 12-30 24l-8-8Z"
+          d="M28 86C55 76 75 58 86 29l8 4C82 67 60 87 29 95l-1-9Z"
           fill="url(#brandGold)"
-          opacity="0.92"
         />
         <path
-          d="M11 47c12-7 23-13 34-28"
+          d="M9 84C26 60 47 44 74 31l-7-9 28-6-6 29-8-8C57 48 36 63 16 92L9 84Z"
+          fill="url(#brandBlue)"
+        />
+        <path
+          d="M13 78C31 58 48 43 75 31"
           fill="none"
-          stroke="#f8fafc"
-          strokeWidth="3"
+          stroke="url(#brandGold)"
+          strokeWidth="8"
           strokeLinecap="round"
         />
         <path
-          d="M18 51a24 24 0 1 0-6-11"
+          d="M28 67c10-22 20-34 35-34 9 0 15 6 15 14 0 14-20 14-20 0 0-4 3-7 7-8-11-2-19 8-27 28l-10 0Z"
+          fill="url(#brandGold)"
+        />
+        <path
+          d="M35 23C49 39 45 55 30 70c-5 5-10 9-16 13"
           fill="none"
           stroke="url(#brandBlue)"
-          strokeWidth="4"
+          strokeWidth="9"
           strokeLinecap="round"
-          opacity="0.9"
+        />
+        <path
+          d="M48 29c15 11 16 26 3 43-6 8-14 14-24 20"
+          fill="none"
+          stroke="url(#brandGold)"
+          strokeWidth="7"
+          strokeLinecap="round"
         />
       </svg>
     </span>
