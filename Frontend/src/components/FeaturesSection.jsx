@@ -4,8 +4,9 @@ const features = [
   {
     icon: "📚",
     title: "Huge Book Collection",
-    description: "1000+ Engineering, Programming and Academic Books.",
-    points: ["1000+ Books", "Multiple Categories"],
+    description: "1000+ Engineering, Programming, Competitive & Academic Books.",
+    points: ["✓ Categories", "✓ Search Books"],
+    action: "→ Explore",
   },
   {
     icon: "🤖",
@@ -92,6 +93,11 @@ function FeaturesSection() {
                   </span>
                 ))}
               </div>
+              {feature.action && (
+                <p className="mt-4 text-sm font-bold text-pink-600 dark:text-pink-300">
+                  {feature.action}
+                </p>
+              )}
             </div>
           </article>
         ))}
