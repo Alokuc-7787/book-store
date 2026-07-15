@@ -568,7 +568,7 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
 
   return (
     <>
-    <article className="group relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-[0_8px_24px_rgba(15,23,42,0.08)] backdrop-blur transition duration-400 hover:-translate-y-1 hover:shadow-[0_14px_32px_rgba(15,23,42,0.12)] dark:border-slate-700 dark:bg-slate-900 sm:min-h-[430px] sm:p-3">
+    <article className="group relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-[0_8px_24px_rgba(15,23,42,0.08)] backdrop-blur transition duration-500 hover:-translate-y-2 hover:border-pink-200 hover:shadow-[0_22px_55px_rgba(15,23,42,0.18)] dark:border-slate-700 dark:bg-slate-900 dark:hover:border-pink-500/50 sm:min-h-[430px] sm:p-3">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 via-transparent to-pink-500/5 opacity-0 transition duration-400 group-hover:opacity-80" />
       <div className="relative flex h-full flex-col">
         <div className="mb-3 hidden items-center justify-between sm:flex">
@@ -586,7 +586,7 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
           onError={(event) => {
             event.currentTarget.src = fallbackImage;
           }}
-          className={`w-full rounded-xl bg-slate-100 transition duration-400 group-hover:scale-103 dark:bg-slate-800 ${
+          className={`w-full rounded-xl bg-slate-100 transition duration-500 group-hover:scale-110 dark:bg-slate-800 ${
             isBook ? "h-24 object-contain p-1 sm:h-48 sm:p-2" : "h-24 object-cover sm:h-28"
           }`}
         />
@@ -622,7 +622,7 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
             <button
               type="button"
               onClick={handleBuyNow}
-              className="flex-1 rounded-xl bg-slate-950 px-2 py-1 text-[10px] font-semibold text-white transition hover:bg-slate-800 sm:px-3 sm:py-1.5 sm:text-xs"
+              className="flex-1 rounded-xl bg-slate-950 px-2 py-1 text-[10px] font-semibold text-white transition duration-300 hover:scale-105 hover:bg-slate-800 sm:px-3 sm:py-1.5 sm:text-xs"
             >
               <span className="sm:hidden">Buy</span>
               <span className="hidden sm:inline">Buy Now</span>
@@ -630,7 +630,7 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
             <button
               type="button"
               onClick={handleAddToCart}
-              className="rounded-xl border border-slate-300 bg-white px-2 py-1 text-[10px] font-semibold text-slate-700 transition hover:border-slate-900 hover:text-slate-950 dark:border-slate-500 dark:bg-slate-950 dark:text-white dark:hover:border-pink-400 dark:hover:text-pink-300 sm:text-xs"
+              className="rounded-xl border border-slate-300 bg-white px-2 py-1 text-[10px] font-semibold text-slate-700 transition duration-300 hover:scale-105 hover:border-slate-900 hover:text-slate-950 dark:border-slate-500 dark:bg-slate-950 dark:text-white dark:hover:border-pink-400 dark:hover:text-pink-300 sm:text-xs"
             >
               <span className="sm:hidden">Cart</span>
               <span className="hidden sm:inline">Add Cart</span>
@@ -639,7 +639,7 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
               <button
                 type="button"
                 onClick={() => setSampleOpen(true)}
-                className="w-full rounded-xl border border-pink-200 bg-pink-50 px-2 py-1 text-[10px] font-semibold text-pink-600 transition hover:bg-pink-100 dark:border-pink-500/40 dark:bg-pink-500/10 dark:text-pink-200 dark:hover:bg-pink-500/20 sm:px-3 sm:py-1.5 sm:text-xs"
+                className="w-full rounded-xl border border-pink-200 bg-pink-50 px-2 py-1 text-[10px] font-semibold text-pink-600 transition duration-300 hover:scale-105 hover:bg-pink-100 dark:border-pink-500/40 dark:bg-pink-500/10 dark:text-pink-200 dark:hover:bg-pink-500/20 sm:px-3 sm:py-1.5 sm:text-xs"
               >
                 <span className="sm:hidden">Sample</span>
                 <span className="hidden sm:inline">Read Sample</span>
@@ -648,7 +648,7 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
             <button
               type="button"
               onClick={handleViewDetails}
-              className="w-full rounded-xl bg-slate-900 px-2 py-1 text-[10px] font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 sm:px-3 sm:py-1.5 sm:text-xs"
+              className="w-full rounded-xl bg-slate-900 px-2 py-1 text-[10px] font-semibold text-white transition duration-300 hover:scale-105 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 sm:px-3 sm:py-1.5 sm:text-xs"
             >
               <span className="sm:hidden">View</span>
               <span className="hidden sm:inline">View Details</span>

@@ -21,14 +21,14 @@ function Banner() {
               <button
                 type="button"
                 onClick={() => navigate("/course#books")}
-                className="rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-pink-500 dark:hover:bg-pink-600"
+                className="rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/20 transition duration-300 hover:-translate-y-0.5 hover:scale-105 hover:bg-slate-800 dark:bg-pink-500 dark:hover:bg-pink-600"
               >
                 Explore Books
               </button>
               <button
                 type="button"
                 onClick={() => navigate("/course#book-trailers")}
-                className="rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:-translate-y-0.5 hover:border-slate-900 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:hover:border-pink-400"
+                className="rounded-xl border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition duration-300 hover:-translate-y-0.5 hover:scale-105 hover:border-slate-900 dark:border-slate-700 dark:bg-slate-950 dark:text-white dark:hover:border-pink-400"
               >
                 Watch Demo
               </button>
@@ -49,10 +49,10 @@ function Banner() {
           </div>
         </div>
         <div className="order-1 mt-20 w-full md:w-1/2">
-          <div className="rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.10)] dark:from-slate-900 dark:to-slate-950">
+          <div className="group overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(15,23,42,0.16)] dark:from-slate-900 dark:to-slate-950">
             <img
               src="/Banner.png"
-              className="mx-auto h-auto max-h-[460px] w-full object-contain"
+              className="mx-auto h-auto max-h-[460px] w-full object-contain transition duration-500 group-hover:scale-105"
               alt="Books and learning illustration"
             />
           </div>
