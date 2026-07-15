@@ -3,12 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Banner() {
   const navigate = useNavigate();
-  const highlights = [
-    { label: "Find Books", path: "/course#books" },
-    { label: "Learn Skills", path: "/course#courses" },
-    { label: "Track Orders", path: "/reading-dashboard" },
-    { label: "Exchange Books", path: "/course#book-exchange" },
-  ];
+  const highlights = ["Find Books", "Learn Skills", "Track Orders", "Exchange Books"];
 
   return (
     <>
@@ -31,14 +26,12 @@ function Banner() {
 
             <div className="grid max-w-xl grid-cols-2 gap-3">
               {highlights.map((item) => (
-                <button
-                  type="button"
-                  key={item.label}
-                  onClick={() => navigate(item.path)}
-                  className="rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-left text-sm font-bold text-slate-800 shadow-sm transition duration-300 hover:-translate-y-1 hover:scale-105 hover:border-pink-200 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900 dark:text-white"
+                <div
+                  key={item}
+                  className="rounded-2xl border border-slate-200 bg-white/85 px-4 py-3 text-sm font-bold text-slate-800 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-pink-200 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900 dark:text-white"
                 >
-                  {item.label}
-                </button>
+                  {item}
+                </div>
               ))}
             </div>
 

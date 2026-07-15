@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import Cards from "./Cards";
 import { useCart } from "../context/CartProvider.jsx";
@@ -1110,7 +1110,6 @@ const expand = (base, n, startId = 1) =>
   Array.from({ length: n }).map((_, i) => ({ ...base[i % base.length], id: startId + i }));
 
 function Course() {
-  const { hash } = useLocation();
   const [activeTab, setActiveTab] = useState("books");
   const [selectedComboSubjects, setSelectedComboSubjects] = useState([
     "Computer Science",
@@ -1144,14 +1143,6 @@ function Course() {
     0
   );
 
-  useEffect(() => {
-    if (hash === "#courses") {
-      setActiveTab("courses");
-    }
-    if (["#books", "#book-exchange", "#ai-assistant", "#book-trailers"].includes(hash)) {
-      setActiveTab("books");
-    }
-  }, [hash]);
   const comboTotalSaving = comboTotalMrp - comboTotalPrice;
   const readingProgress = Math.min(
     Math.round((readingChallenge.completedBooks / readingChallenge.targetBooks) * 100) || 0,
@@ -1891,7 +1882,7 @@ function Course() {
           </section>
         )}
 
-        <div id={activeTab === "courses" ? "courses" : "books"} className="mt-8 grid scroll-mt-28 grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div id="books" className="mt-8 grid scroll-mt-28 grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {(activeTab === "books" ? filteredBookStoreItems : courseItems).map((item) => (
             <Cards
               key={item.id}
