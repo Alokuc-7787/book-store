@@ -1390,7 +1390,7 @@ function Course() {
           </div>
         </div>
 
-        {activeTab === "books" && (
+        {false && activeTab === "books" && (
           <section className="mt-8 rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
@@ -1455,23 +1455,61 @@ function Course() {
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
             <section className="rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
               <h3 className="text-lg font-semibold text-slate-800 dark:text-white">
-                AI Book Recommendation
+                AI Assistant
               </h3>
-              <form onSubmit={handleRecommendation} className="mt-3 flex flex-col gap-3 sm:flex-row">
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                Search book, get AI recommendations, or use voice search in English/Hindi.
+              </p>
+              <form onSubmit={handleRecommendation} className="mt-4 flex flex-col gap-3">
                 <input
                   type="text"
                   value={recommendationQuery}
                   onChange={(e) => setRecommendationQuery(e.target.value)}
-                  placeholder="mujhe motivational Hindi book chahiye"
+                  placeholder="Search Book"
                   className="flex-1 rounded-full border border-slate-200 bg-white px-4 py-2 text-sm outline-none focus:border-pink-400 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
                 />
-                <button
-                  type="submit"
-                  className="rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-pink-600"
-                >
-                  Recommend
-                </button>
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <button
+                    type="submit"
+                    className="rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-white transition hover:bg-pink-600"
+                  >
+                    Recommend
+                  </button>
+                  <select
+                    value={voiceSearchLanguage}
+                    onChange={(e) => setVoiceSearchLanguage(e.target.value)}
+                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm outline-none transition focus:border-pink-400 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                  >
+                    <option value="en-IN">English</option>
+                    <option value="hi-IN">Hindi / Hinglish</option>
+                  </select>
+                  <button
+                    type="button"
+                    onClick={handleVoiceSearch}
+                    className={`rounded-full px-5 py-2 text-sm font-semibold text-white transition ${
+                      isListening
+                        ? "bg-red-500 shadow-[0_0_20px_rgba(239,68,68,0.45)]"
+                        : "bg-slate-900 hover:bg-slate-700"
+                    }`}
+                  >
+                    {isListening ? "Listening..." : "Voice Search"}
+                  </button>
+                  {voiceSearchQuery && (
+                    <button
+                      type="button"
+                      onClick={() => setVoiceSearchQuery("")}
+                      className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-pink-500 hover:text-pink-600 dark:border-slate-600 dark:text-slate-200"
+                    >
+                      Clear
+                    </button>
+                  )}
+                </div>
               </form>
+              {voiceSearchQuery && (
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                  Voice Search: showing {filteredBookStoreItems.length} result(s) for "{voiceSearchQuery}"
+                </p>
+              )}
               {recommendedBooks.length > 0 && (
                 <div className="mt-4 grid gap-3 sm:grid-cols-2">
                   {recommendedBooks.map((item) => (
@@ -1537,7 +1575,7 @@ function Course() {
           </div>
         )}
 
-        {activeTab === "books" && (
+        {false && activeTab === "books" && (
           <section className="mt-8 rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
@@ -1858,6 +1896,262 @@ function Course() {
           <div className="mt-6 rounded-2xl border border-pink-100 bg-white/80 p-6 text-center text-slate-600 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300">
             No books found. Try saying "DBMS book dikhao" or "Data Structure ki book dikhao".
           </div>
+        )}
+
+        {activeTab === "books" && (
+          <section className="mt-8 rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 className="text-xl font-semibold text-slate-800 dark:text-white">
+                  Book Combo Offers
+                </h3>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                  Save more with ready-made semester, coding and exam preparation combos.
+                </p>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">
+                  Change top 3 combos
+                </span>
+                {selectedComboSubjects.map((selectedSubject, index) => (
+                  <select
+                    key={`${selectedSubject}-${index}`}
+                    value={selectedSubject}
+                    onChange={(e) => handleComboSubjectChange(index, e.target.value)}
+                    className="rounded-full border border-pink-200 bg-white px-3 py-2 text-sm outline-none focus:border-pink-400 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                  >
+                    {Object.keys(subjectComboCatalog).map((subject) => (
+                      <option key={subject} value={subject}>
+                        {subject}
+                      </option>
+                    ))}
+                  </select>
+                ))}
+              </div>
+            </div>
+            <div className="mt-5 grid gap-3 rounded-2xl bg-gradient-to-r from-pink-500 to-slate-900 p-4 text-white md:grid-cols-3">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-pink-100">
+                  Selected Combos
+                </p>
+                <p className="mt-1 text-2xl font-bold">{visibleComboOffers.length} Subjects</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-pink-100">
+                  Total Combo Price
+                </p>
+                <p className="mt-1 text-3xl font-bold">Rs. {comboTotalPrice}</p>
+                <p className="text-sm text-pink-100 line-through">MRP Rs. {comboTotalMrp}</p>
+              </div>
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-pink-100">
+                  Total Saving
+                </p>
+                <p className="mt-1 text-2xl font-bold">Rs. {comboTotalSaving}</p>
+                <p className="text-sm text-pink-100">
+                  All 3 selected subject combos together
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={handleBuyAllCombos}
+                    className="rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-pink-600 transition hover:bg-pink-50"
+                  >
+                    Buy All 3
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleAddAllCombos}
+                    className="rounded-full border border-white/60 px-3 py-1.5 text-xs font-semibold text-white transition hover:bg-white/10"
+                  >
+                    Add All Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="mt-5 grid gap-4 md:grid-cols-3">
+              {visibleComboOffers.map((combo) => (
+                <article
+                  key={combo.id}
+                  className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-sm dark:border-slate-700 dark:bg-slate-950"
+                >
+                  <img src={combo.image} alt={combo.name} className="h-32 w-full object-cover" />
+                  <div className="p-4">
+                    <div className="flex items-start justify-between gap-2">
+                      <h4 className="font-semibold text-slate-800 dark:text-white">{combo.name}</h4>
+                      <span className="rounded-full bg-emerald-100 px-2 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300">
+                        {combo.badge}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">
+                      {combo.title}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {combo.books.map((bookName) => (
+                        <span
+                          key={bookName}
+                          className="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                        >
+                          {bookName}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-4 rounded-xl bg-pink-50 p-3 dark:bg-slate-900">
+                      <p className="text-xs uppercase tracking-[0.2em] text-slate-400">
+                        Combo Price
+                      </p>
+                      <div className="mt-1 flex flex-wrap items-end justify-between gap-2">
+                        <div className="flex items-end gap-2">
+                          <p className="text-2xl font-bold text-pink-600">
+                            Rs. {combo.price}
+                          </p>
+                          <p className="pb-1 text-sm text-slate-400 line-through">
+                            Rs. {combo.originalPrice}
+                          </p>
+                        </div>
+                        <span className="rounded-full bg-emerald-100 px-2 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/20 dark:text-emerald-300">
+                          Save Rs. {combo.originalPrice - combo.price}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="mt-4 grid grid-cols-2 gap-2">
+                      <button
+                        type="button"
+                        onClick={() => handleBuyNow(combo)}
+                        className="rounded-full bg-pink-500 px-3 py-2 text-xs font-semibold text-white transition hover:bg-pink-600"
+                      >
+                        Buy Now
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleAddToCart(combo)}
+                        className="rounded-full border border-slate-300 px-3 py-2 text-xs font-semibold text-slate-700 transition hover:border-pink-500 hover:text-pink-600 dark:border-slate-600 dark:text-slate-200"
+                      >
+                        Add Cart
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedItem(combo)}
+                        className="col-span-2 rounded-full bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600"
+                      >
+                        View Combo Details
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {activeTab === "books" && (
+          <section className="mt-8 rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 className="text-xl font-semibold text-slate-800 dark:text-white">
+                  Reading Challenge
+                </h3>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                  Set your reading goal and track book completion progress.
+                </p>
+              </div>
+              <span className="rounded-full bg-pink-100 px-3 py-1 text-xs font-semibold text-pink-600 dark:bg-pink-500/20 dark:text-pink-300">
+                {readingProgress}% completed
+              </span>
+            </div>
+
+            <div className="mt-5 grid gap-3 md:grid-cols-4">
+              <input
+                type="text"
+                name="goal"
+                value={readingChallenge.goal}
+                onChange={handleReadingChallengeChange}
+                placeholder="30 days me 2 books complete"
+                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-pink-400 dark:border-slate-700 dark:bg-slate-950 dark:text-white md:col-span-2"
+              />
+              <input
+                type="number"
+                name="days"
+                min="1"
+                value={readingChallenge.days}
+                onChange={handleReadingChallengeChange}
+                placeholder="Days"
+                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-pink-400 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+              />
+              <input
+                type="number"
+                name="targetBooks"
+                min="1"
+                value={readingChallenge.targetBooks}
+                onChange={handleReadingChallengeChange}
+                placeholder="Target books"
+                className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-pink-400 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+              />
+            </div>
+
+            <div className="mt-5 rounded-2xl bg-gradient-to-r from-pink-500 to-slate-900 p-4 text-white">
+              <div className="flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-pink-100">
+                    Current Goal
+                  </p>
+                  <p className="mt-1 text-2xl font-bold">{readingChallenge.goal}</p>
+                  <p className="mt-1 text-sm text-pink-100">
+                    {readingChallenge.completedBooks} of {readingChallenge.targetBooks} books completed in {readingChallenge.days} days
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <label className="text-sm font-semibold text-pink-100">
+                    Completed
+                  </label>
+                  <input
+                    type="number"
+                    name="completedBooks"
+                    min="0"
+                    max={readingChallenge.targetBooks}
+                    value={readingChallenge.completedBooks}
+                    onChange={handleReadingChallengeChange}
+                    className="w-20 rounded-full border border-white/40 bg-white px-3 py-2 text-sm font-semibold text-slate-900 outline-none"
+                  />
+                </div>
+              </div>
+              <div className="mt-4 h-4 overflow-hidden rounded-full bg-white/20">
+                <div
+                  className="h-full rounded-full bg-white transition-all duration-500"
+                  style={{ width: `${readingProgress}%` }}
+                />
+              </div>
+              <div className="mt-2 flex justify-between text-xs font-semibold text-pink-100">
+                <span>Start</span>
+                <span>{readingProgress}%</span>
+                <span>Complete</span>
+              </div>
+            </div>
+          </section>
+        )}
+
+        {activeTab === "books" && (
+          <section className="mt-8 rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
+            <h3 className="text-xl font-semibold text-slate-800 dark:text-white">
+              Testimonials
+            </h3>
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              {[
+                "Best website for engineering books.",
+                "Fast delivery and secure payment.",
+              ].map((quote) => (
+                <article
+                  key={quote}
+                  className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-950"
+                >
+                  <p className="text-lg text-yellow-400">⭐⭐⭐⭐⭐</p>
+                  <p className="mt-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                    "{quote}"
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
         )}
 
         {selectedItem && (
