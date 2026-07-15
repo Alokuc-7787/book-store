@@ -5,12 +5,14 @@ import axios from "axios";
 import Cards from "./Cards";
 function Freebook() {
   const [book, setBook] = useState([]);
+  const popularBooks = book.slice(0, 6);
+
   useEffect(() => {
     const getBook = async () => {
       try {
         const res = await axios.get(`${import.meta.env.VITE_API_URL}/book`);
 
-        setBook(res.data.slice(0, 6));
+        setBook(res.data);
       } catch (error) {
         console.log(error);
       }
@@ -28,8 +30,8 @@ function Freebook() {
           </p>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {book.map((item) => (
+        <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4">
+            {popularBooks.map((item) => (
               <Cards item={item} key={item.id} />
             ))}
         </div>
