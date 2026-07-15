@@ -7,7 +7,7 @@ function Banner() {
 
   return (
     <>
-      <div className="max-w-screen-2xl container mx-auto my-10 flex flex-col px-4 md:flex-row md:px-20">
+      <div className="scroll-reveal max-w-screen-2xl container mx-auto my-10 flex flex-col px-4 md:flex-row md:px-20">
         <div className="order-2 mt-12 w-full md:order-1 md:mt-32 md:w-1/2">
           <div className="space-y-8">
             <div>
@@ -67,7 +67,7 @@ function Banner() {
           </div>
         </div>
         <div className="order-1 mt-20 w-full md:w-1/2">
-          <div className="group overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(15,23,42,0.16)] dark:from-slate-900 dark:to-slate-950">
+          <div className="scroll-reveal zoom-in group overflow-hidden rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 p-4 shadow-[0_20px_60px_rgba(15,23,42,0.10)] transition duration-500 hover:-translate-y-2 hover:shadow-[0_28px_80px_rgba(15,23,42,0.16)] dark:from-slate-900 dark:to-slate-950">
             <img
               src="/Banner.png"
               className="mx-auto h-auto max-h-[460px] w-full object-contain transition duration-500 group-hover:scale-105"

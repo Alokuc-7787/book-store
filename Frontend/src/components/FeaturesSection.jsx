@@ -54,7 +54,7 @@ const features = [
 
 function FeaturesSection() {
   return (
-    <section className="max-w-screen-2xl container mx-auto px-4 py-10 md:px-20">
+    <section className="scroll-reveal max-w-screen-2xl container mx-auto px-4 py-10 md:px-20">
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.24em] text-pink-500">
@@ -75,7 +75,7 @@ function FeaturesSection() {
           <Link
             to={feature.link}
             key={feature.title}
-            className="group relative min-h-[220px] overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition duration-500 hover:-translate-y-2 hover:border-pink-200 hover:shadow-[0_22px_55px_rgba(15,23,42,0.16)] dark:border-slate-700 dark:bg-slate-900 dark:hover:border-pink-500/50"
+            className="scroll-reveal slide-up group relative min-h-[220px] overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition duration-500 hover:-translate-y-2 hover:border-pink-200 hover:shadow-[0_22px_55px_rgba(15,23,42,0.16)] dark:border-slate-700 dark:bg-slate-900 dark:hover:border-pink-500/50"
             style={{ transitionDelay: `${index * 35}ms` }}
           >
             <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-pink-100/70 blur-2xl transition group-hover:bg-pink-200/80 dark:bg-pink-500/10" />

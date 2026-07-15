@@ -214,6 +214,44 @@ body {
   animation: luckyWheelSpin 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal.slide-up {
+  transform: translateY(46px);
+}
+
+.scroll-reveal.zoom-in {
+  transform: translateY(24px) scale(0.96);
+}
+
+.scroll-reveal.zoom-in.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+button,
+a,
+[role="button"] {
+  cursor: pointer;
+}
+
+.book-hover-pointer {
+  cursor: pointer;
+}
+
 .book-loader {
   animation: loaderFadeOut 0.45s ease 1.65s forwards;
 }

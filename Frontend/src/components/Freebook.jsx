@@ -90,7 +90,7 @@ function Freebook() {
 
   return (
     <>
-      <div className=" max-w-screen-2xl container mx-auto md:px-20 px-4">
+      <div className="scroll-reveal max-w-screen-2xl container mx-auto px-4 md:px-20">
         <div>
           <h1 className="font-semibold text-xl pb-2">Popular Books</h1>
           <p>
@@ -100,7 +100,9 @@ function Freebook() {
 
         <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4">
             {popularBooks.map((item) => (
-              <Cards item={item} key={item.id} />
+              <div className="scroll-reveal slide-up" key={item.id}>
+                <Cards item={item} />
+              </div>
             ))}
         </div>
       </div>

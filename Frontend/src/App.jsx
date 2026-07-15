@@ -13,11 +13,13 @@ import AdminPanel from "./components/AdminPanel.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
 import ScrollToHash from "./components/ScrollToHash.jsx";
 import PolicyPage from "./components/PolicyPage.jsx";
+import ScrollReveal from "./components/ScrollReveal.jsx";
 
 function App() {
   return (
     <>
       <ScrollToHash />
+      <ScrollReveal />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route

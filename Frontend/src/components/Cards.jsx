@@ -568,7 +568,7 @@ function Cards({ item, onAddToCart, onBuyNow, onViewDetails }) {
 
   return (
     <>
-    <article className="group relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-[0_8px_24px_rgba(15,23,42,0.08)] backdrop-blur transition duration-500 hover:-translate-y-2 hover:border-pink-200 hover:shadow-[0_22px_55px_rgba(15,23,42,0.18)] dark:border-slate-700 dark:bg-slate-900 dark:hover:border-pink-500/50 sm:min-h-[430px] sm:p-3">
+    <article className="book-hover-pointer group relative flex h-full min-h-[220px] flex-col overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-[0_8px_24px_rgba(15,23,42,0.08)] backdrop-blur transition duration-500 hover:-translate-y-2 hover:border-pink-200 hover:shadow-[0_22px_55px_rgba(15,23,42,0.18)] dark:border-slate-700 dark:bg-slate-900 dark:hover:border-pink-500/50 sm:min-h-[430px] sm:p-3">
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900/5 via-transparent to-pink-500/5 opacity-0 transition duration-400 group-hover:opacity-80" />
       <div className="relative flex h-full flex-col">
         <div className="mb-3 hidden items-center justify-between sm:flex">
