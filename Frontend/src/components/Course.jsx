@@ -1453,7 +1453,7 @@ function Course() {
 
         {activeTab === "books" && (
           <div className="mt-8 grid gap-4 lg:grid-cols-2">
-            <section className="rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
+            <section id="ai-assistant" className="scroll-mt-28 rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
               <h3 className="text-lg font-semibold text-slate-800 dark:text-white">
                 AI Assistant
               </h3>
@@ -1528,7 +1528,7 @@ function Course() {
               )}
             </section>
 
-            <section className="rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
+            <section id="book-exchange" className="scroll-mt-28 rounded-2xl border border-pink-100 bg-white/80 p-4 shadow-[0_8px_30px_rgba(244,114,182,0.12)] dark:border-slate-700 dark:bg-slate-900/80">
               <h3 className="text-lg font-semibold text-slate-800 dark:text-white">
                 Book Exchange System
               </h3>
@@ -1881,7 +1881,7 @@ function Course() {
           </section>
         )}
 
-        <div className="mt-8 grid grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <div id="books" className="mt-8 grid scroll-mt-28 grid-cols-3 gap-2 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {(activeTab === "books" ? filteredBookStoreItems : courseItems).map((item) => (
             <Cards
               key={item.id}

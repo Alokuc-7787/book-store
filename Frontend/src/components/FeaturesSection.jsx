@@ -1,42 +1,54 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const features = [
   {
     icon: "📚",
     title: "Huge Book Collection",
     description: "1000+ Engineering, Programming, Competitive & Academic Books.",
-    points: ["✓ Categories", "✓ Search Books"],
-    action: "→ Explore",
+    points: ["Categories", "Search Books"],
+    action: "Explore",
+    link: "/course#books",
   },
   {
     icon: "🤖",
     title: "AI Recommendation",
     description: "Get personalized book suggestions using AI.",
     points: ["Smart Suggestions", "Personalized Results"],
+    action: "Open AI",
+    link: "/course#ai-assistant",
   },
   {
     icon: "🔄",
     title: "Book Exchange",
     description: "Buy, Sell and Exchange old books with other students.",
     points: ["Sell Old Books", "Buy Used Books"],
+    action: "Exchange",
+    link: "/course#book-exchange",
   },
   {
     icon: "💳",
     title: "Secure Payment",
     description: "Pay securely using Razorpay with UPI, Cards and Net Banking.",
     points: ["Razorpay", "UPI, Card, Net Banking"],
+    action: "Buy Books",
+    link: "/course#books",
   },
   {
     icon: "📦",
     title: "Order Tracking",
     description: "Track every order from purchase to delivery.",
     points: ["Live Status", "Delivery Updates"],
+    action: "Track Orders",
+    link: "/reading-dashboard",
   },
   {
     icon: "🎤",
     title: "Voice Search",
     description: "Search books using voice commands in English or Hindi.",
     points: ["Hindi & English", "Fast Search"],
+    action: "Voice Search",
+    link: "/course#ai-assistant",
   },
 ];
 
@@ -60,7 +72,8 @@ function FeaturesSection() {
 
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {features.map((feature, index) => (
-          <article
+          <Link
+            to={feature.link}
             key={feature.title}
             className="group relative min-h-[220px] overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-[0_10px_30px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-[0_18px_45px_rgba(15,23,42,0.13)] dark:border-slate-700 dark:bg-slate-900"
             style={{ transitionDelay: `${index * 35}ms` }}
@@ -89,17 +102,15 @@ function FeaturesSection() {
                     key={point}
                     className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
                   >
-                    {point}
+                    ✓ {point}
                   </span>
                 ))}
               </div>
-              {feature.action && (
-                <p className="mt-4 text-sm font-bold text-pink-600 dark:text-pink-300">
-                  {feature.action}
-                </p>
-              )}
+              <p className="mt-4 text-sm font-bold text-pink-600 transition group-hover:translate-x-1 dark:text-pink-300">
+                → {feature.action}
+              </p>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </section>

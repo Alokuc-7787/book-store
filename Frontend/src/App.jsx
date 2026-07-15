@@ -11,10 +11,12 @@ import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import AdminPanel from "./components/AdminPanel.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
+import ScrollToHash from "./components/ScrollToHash.jsx";
 
 function App() {
   return (
     <>
+      <ScrollToHash />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
