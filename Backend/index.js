@@ -11,24 +11,21 @@ import bookRoute from "./route/book.route.js";
 import userRoute from "./route/user.route.js";
 import contactRoute from "./route/contact.route.js";
 import paymentRoute from "./route/payment.route.js";
+import { requireClientKey } from "./middleware/security.middleware.js";
 
 const app = express();
 
 const allowedOrigins = [
   "https://bookstoretech.online",
   "https://www.bookstoretech.online",
-  "https://book-store-3-7jsp.onrender.com",
   "https://book-store-one-gamma.vercel.app",
-  "http://localhost:5173",
-  "http://localhost:5174",
   process.env.FRONTEND_URL,
+  ...(process.env.FRONTEND_URLS || "").split(","),
 ].filter(Boolean);
 
 const corsOptions = {
   origin(origin, callback) {
-    const isVercelApp = origin?.endsWith(".vercel.app");
-
-    if (!origin || allowedOrigins.includes(origin) || isVercelApp) {
+    if (!origin || allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
 
@@ -40,6 +37,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 app.use(express.json());
+app.use(requireClientKey);
 
 const PORT = process.env.PORT || 4000;
 const URI = process.env.MONGO_URI;

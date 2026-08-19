@@ -2,6 +2,18 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const API_URL = import.meta.env.VITE_API_URL || "https://book-store-3-7jsp.onrender.com";
+const secureHeaders = () => {
+  const headers = {
+    "Content-Type": "application/json",
+  };
+  const clientKey = import.meta.env.VITE_APP_CLIENT_KEY;
+  const token = localStorage.getItem("bookstoreToken");
+
+  if (clientKey) headers["X-BookStore-Client"] = clientKey;
+  if (token) headers.Authorization = `Bearer ${token}`;
+
+  return headers;
+};
 
 const readJsonResponse = async (response) => {
   const text = await response.text();
@@ -76,9 +88,7 @@ export default function CheckoutModal({ item, items, onClose, clearCart }) {
     try {
       const orderRes = await fetch(`${API_URL}/payment/create-order`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: secureHeaders(),
         body: JSON.stringify({ amount: total }),
       });
 
@@ -107,9 +117,7 @@ export default function CheckoutModal({ item, items, onClose, clearCart }) {
         handler: async function (response) {
           const verifyRes = await fetch(`${API_URL}/payment/verify`, {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: secureHeaders(),
             body: JSON.stringify(response),
           });
 

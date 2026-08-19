@@ -1,5 +1,6 @@
 import User from "../model/user.model.js";
 import bcryptjs from "bcryptjs";
+import { createAuthToken } from "../middleware/security.middleware.js";
 
 // ✅ SIGNUP controller
 export const signup = async (req, res) => {
@@ -26,6 +27,7 @@ export const signup = async (req, res) => {
 
     res.status(201).json({
       message: "User created successfully",
+      token: createAuthToken(createdUser),
       user: {
         _id: createdUser._id,
         fullname: createdUser.fullname,
@@ -57,6 +59,7 @@ export const login = async (req, res) => {
 
     res.status(200).json({
       message: "Login successful",
+      token: createAuthToken(user),
       user: {
         _id: user._id,
         fullname: user.fullname,

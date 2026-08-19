@@ -10,6 +10,7 @@ function Logout() {
     try {
       setAuthUser(undefined);
       localStorage.removeItem("Users");
+      localStorage.removeItem("bookstoreToken");
       toast.success("Logout successfully");
       setTimeout(() => {
         window.location.reload();

@@ -6,6 +6,24 @@ import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import AuthProvider from "./context/AuthProvider.jsx";
 import CartProvider from "./context/CartProvider.jsx";
+import axios from "axios";
+
+axios.interceptors.request.use((config) => {
+  const clientKey = import.meta.env.VITE_APP_CLIENT_KEY;
+  const token = localStorage.getItem("bookstoreToken");
+
+  config.headers = config.headers || {};
+
+  if (clientKey) {
+    config.headers["X-BookStore-Client"] = clientKey;
+  }
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>

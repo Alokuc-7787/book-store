@@ -34,6 +34,9 @@ function Login() {
       if (res.data?.user) {
         setAuthUser(res.data.user);
         localStorage.setItem("Users", JSON.stringify(res.data.user));
+        if (res.data.token) {
+          localStorage.setItem("bookstoreToken", res.data.token);
+        }
         toast.success("Logged in successfully");
         document.getElementById("my_modal_3")?.close();
         navigate(from, { replace: true });

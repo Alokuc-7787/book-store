@@ -1,6 +1,7 @@
 import express from "express";
 import Razorpay from "razorpay";
 import crypto from "crypto";
+import { requireAuth } from "../middleware/security.middleware.js";
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ const getRazorpay = () => {
   });
 };
 
-router.post("/create-order", async (req, res) => {
+router.post("/create-order", requireAuth, async (req, res) => {
   try {
     const { amount } = req.body;
     const razorpay = getRazorpay();
@@ -54,7 +55,7 @@ router.post("/create-order", async (req, res) => {
   }
 });
 
-router.post("/verify", async (req, res) => {
+router.post("/verify", requireAuth, async (req, res) => {
   try {
     if (!process.env.RAZORPAY_KEY_SECRET) {
       return res.status(500).json({
